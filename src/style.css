@@ -5,21 +5,84 @@
 
   color-scheme: light dark;
   color: #1e1e1e;
-  background-color: #f0f0f0;
+  /*background-color: #ecc9ff;*/
+  background-image: url(./img/daniele-levis-pelusi-Vey6fioB1eI-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+h1 {
+  font-family: 'VT323', monospace;
+  font-size: 4.5rem;
+  font-weight: 500;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
 .calculadora {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #8004b9;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.top-bar{
+  display:flex;
+  justify-content:flex-end;
+  margin: 8px 0 12px 0;
+}
+
+.programmer-toggle{
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b74aca;
+  color: #030303;
+  cursor: pointer;
+}
+
+.programmer-toggle:hover{
+  background-color: #c97bdf;
+}
+
+.programmer-panel{
+  background-color: rgba(255, 2, 2, 0.15);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.programmer-panel.hidden{
+  display:none;
+}
+
+.programmer-panel .base-row{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.programmer-panel .base-row label{
+  width: 50px;
+  color:#000;
+  font-weight: 600;
+}
+
+.programmer-panel .base-row input{
+  flex:1;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff9ef5;
+  color:#000;
 }
 
 .teclado{
@@ -30,18 +93,51 @@
   margin: 20px auto;
 }
 
+.keys-wrapper{ /* default (modo normal) */
+  display:block; /* teclado ocupa ancho completo como antes */
+}
+
+.keys-wrapper.prog-on{ /* solo en modo programador */
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
+}
+
+.hex-keys{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top: 20px; /* alinear vertical con margen superior del teclado */
+}
+
+.hex-keys.hidden{ display:none; }
+
+.hex-keys .hex-key{
+  padding: 20px; /* igual que .teclado button */
+  font-size: 1.5rem;
+  border:none;
+  border-radius:6px;
+  background-color:#cb2ca1d2;
+  color:#000;
+  cursor:pointer;
+}
+
+.hex-keys .hex-key:hover{
+  background-color:#06acafcd;
+}
+
 .teclado button{
   padding: 20px;
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
-  background-color: #333;
-  color: white;
+  background-color: #dc7bc1;
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
 .teclado button:hover{
-  background-color: #555;
+  background-color: #06acafcd;
 }
 
 .teclado .span-two{
@@ -49,33 +145,34 @@
 }
 
 .teclado .operation{
-  background-color: #f57c00;
+  background-color: #00ff95c7;
 }
 
 .teclado .operation:hover{
-  background-color: #ff9800;
+  background-color: #cf48f4;
 }
 
 .teclado .delete {
-  background-color: #d32f2f;
+  background-color: #fa0637;
 }
 
 .teclado .delete:hover {
-  background-color: #f44336;
+  background-color: #f3fb00;
 }
 
 .teclado .equals {
-  background-color: #a0a0a0;
+  background-color: #4d045c;
+  color: #ffffff;
 }
 
 
 .teclado .reset {
-  background-color: #d5d513;
+  background-color: #22d312;
   color:#000000;
 }
 
 .teclado .reset:hover {
-  background-color: #ffff00;
+  background-color: #f3fb00;
 }
 
 .calculadora .display {
@@ -91,6 +188,6 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #444;
-  color: white;
+  background-color: #ff9ef5;
+  color: rgb(0, 0, 0);
 } 
