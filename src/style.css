@@ -35,8 +35,64 @@ h1 {
 
 .top-bar{
   display:flex;
-  justify-content:flex-end;
+  justify-content:space-between;
+  align-items:center;
+  gap: 12px;
   margin: 8px 0 12px 0;
+}
+
+/* Presentación digital del reloj, con cifras alineadas y contraste sobre la calculadora. */
+.clock{
+  min-width: 100px;
+  padding: 8px 12px;
+  border: 2px solid #3a004f;
+  border-radius: 6px;
+  background-color: #260035;
+  color: #7dffbd;
+  font-family: 'VT323', monospace;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.stopwatch{
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 2px solid #3a004f;
+  border-radius: 6px;
+  background-color: #260035;
+  text-align: center;
+}
+
+.stopwatch-display{
+  color: #7dffbd;
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stopwatch-controls{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.stopwatch-controls button{
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc7bc1;
+  color: #000;
+  cursor: pointer;
+}
+
+.stopwatch-controls button:disabled{
+  cursor: default;
+  opacity: 0.55;
 }
 
 .programmer-toggle{

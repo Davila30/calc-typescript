@@ -1,4 +1,5 @@
 import './style.css'
+import { ClockComponent, StopwatchComponent } from './clock';
 
 
 let currentInput = '0';
@@ -17,8 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <input type="text" class="display-input" value="0" disabled />
         </div>
         <div class="top-bar">
+          <div id="clock-container"></div>
           <button class="programmer-toggle">Modo programador</button>
         </div>
+        <div id="stopwatch-container"></div>
         <div class="programmer-panel hidden" aria-hidden="true">
           <div class="base-row">
             <label for="prog-hex">HEX</label>
@@ -325,8 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if(operation && !shouldResetInput){
-          // Si ya hay una operación pendiente y se ha introducido el segundo operando,
-          // calcular el resultado antes de establecer la nueva operación
+          //operacion pendiente esperar
           const result = calculate();
           currentInput = result.toString();
           (document.querySelector('.display-input') as HTMLInputElement)!.value = currentInput;
@@ -355,6 +357,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
+  const clockContainer = document.getElementById('clock-container');
+  if(clockContainer){
+    const clockComponent = new ClockComponent();
+    clockContainer.appendChild(clockComponent.getElement());
+    // Conecta el componente al observable para mantener visible la hora actual
+    clockComponent.subscribeToClock();
+  }
+  const stopwatchContainer = document.getElementById('stopwatch-container');
+  if(stopwatchContainer){
+    const stopwatchComponent = new StopwatchComponent();
+    stopwatchContainer.appendChild(stopwatchComponent.getElement());
+  }
 });
-
